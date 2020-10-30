@@ -1,0 +1,25 @@
+# Example docker-compose for Ubuntu 20.04 with sshd, python3, pip3 and autorun functionality.
+#
+# To run:
+#   sudo docker-compose up -d
+#
+# Environment variables:
+#   - ROOT_PASSWORD     The root password to set (default: root)
+#   - AUTORUN           Any command(s) to autorun (default: none). Output is visible in docker logs.
+#                       The container will not terminate if autorun is complete as this is a 'vm'! :)
+#                       You can force termination of the container after completion by appending '; kill 1' to the AUTORUN variable.
+#
+version: '3.1'
+
+
+services:
+
+  ubuntu:
+    image: micro-ubuntu:20.04
+    #environment:
+    #  - ROOT_PASSWORD=password            # Set root user password to 'password'
+    #  - AUTORUN=ls /                      # Autorun 'ls /'
+    #ports:
+    #  - '22:22'                           # Expose ssh port to host ip
+    #volumes:
+    #  - 'some/host/dir:/container/dir'    # 'Mount' a directory in the container
