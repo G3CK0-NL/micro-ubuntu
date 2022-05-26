@@ -11,7 +11,7 @@
 FROM ubuntu:20.04
 
 # Install sshd and python3-pip (python3 is there already)
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y openssh-server python3-pip && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y && DEBIAN_FRONTEND=noninteractive apt-get install -y openssh-server python3-pip iproute2 iputils-ping dnsutils && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Configure sshd
 RUN mkdir /var/run/sshd
